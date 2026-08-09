@@ -1,1 +1,4 @@
-execute as @a at @s run summon firework_rocket ~ ~1 ~-1 {LifeTime:18,FireworksItem:{id:"minecraft:firework_rocket",count:1,components:{"minecraft:fireworks":{flight_duration:2,explosions:[{shape:"burst",colors:[I;16766720,16777215],has_trail:true,has_twinkle:true}]}}}}
+execute as @a at @s run playsound minecraft:entity.firework_rocket.twinkle master @s ~ ~ ~ 1 0.9
+execute as @a at @s run particle minecraft:flash{color:[1.0,0.25,0.1,1.0]} ~ ~1.5 ~ 0 0 0 0 1 force @s
+execute as @a at @s run particle minecraft:dust_color_transition{from_color:[1.0,0.25,0.1],to_color:[1.0,0.84,0.0],scale:1.6} ~ ~1.5 ~ 0.9 0.9 0.9 0 90 normal @s
+execute as @a at @s run particle minecraft:end_rod ~ ~1.5 ~ 0.8 0.8 0.8 0.04 70 normal @s

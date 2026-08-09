@@ -1,2 +1,5 @@
-execute as @a at @s run summon firework_rocket ~-1 ~1 ~1 {LifeTime:16,FireworksItem:{id:"minecraft:firework_rocket",count:1,components:{"minecraft:fireworks":{flight_duration:2,explosions:[{shape:"star",colors:[I;16711680],fade_colors:[I;16766720],has_trail:true}]}}}}
-schedule function vanilla_qol:milestone/hundred3 14t
+execute as @a at @s run playsound minecraft:entity.firework_rocket.large_blast master @s ~ ~ ~ 1 1
+execute as @a at @s run particle minecraft:flash{color:[1.0,0.84,0.0,1.0]} ~ ~1.5 ~ 0 0 0 0 1 force @s
+execute as @a at @s run particle minecraft:firework ~ ~1.5 ~ 0.6 0.6 0.6 0.16 140 normal @s
+execute as @a at @s run particle minecraft:dust_color_transition{from_color:[1.0,0.84,0.0],to_color:[1.0,1.0,1.0],scale:1.6} ~ ~1.5 ~ 0.9 0.9 0.9 0 100 normal @s
+schedule function vanilla_qol:milestone/hundred3 12t
