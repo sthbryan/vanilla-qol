@@ -1,11 +1,21 @@
-# Experience level next to each name in the tab list, with an icon.
+# Health, experience level and hours played, next to each name in the tab list.
 #
-# The objective is 'dummy' on purpose. With the 'level' criterion Minecraft
-# marks it read-only and 'store result' fails with "Cannot modify read-only
-# score"; it also only writes when a player gains or loses a level, so anyone
-# holding steady would show nothing. Hence the active read.
+# The list slot renders one bare number, so everything has to ride inside a
+# per-player fixed number format that carries the scores with it.
+#
+# Health and level are read actively rather than through the 'health' and
+# 'level' criteria: those only write when the value changes, so a player who
+# is at full health and holding a level would show nothing. Criterion
+# objectives are also read-only, which rules out computing on top of them.
+
+execute as @a store result score @s qol.health run data get entity @s Health
 execute as @a store result score @s qol.level run experience query @s levels
 
-# The list slot renders a bare number, so the icon has to come from a fixed
-# number format that carries the score along with it.
-execute as @a run scoreboard players display numberformat @s qol.level fixed [{"score":{"name":"@s","objective":"qol.level"}},{"text":" ✦","color":"green"}]
+# Playtime is a statistic criterion, which Minecraft maintains for free, but
+# it counts ticks — turn it into whole hours on a writable objective.
+# Adding half an hour first makes the integer division round instead of floor.
+execute as @a run scoreboard players operation @s qol.hours = @s qol.ptime
+execute as @a run scoreboard players operation @s qol.hours += #halfhour qol.sys
+execute as @a run scoreboard players operation @s qol.hours /= #hourlen qol.sys
+
+execute as @a run scoreboard players display numberformat @s qol.level fixed [{"score":{"name":"@s","objective":"qol.health"},"color":"red"},{"text":"❤ ","color":"red"},{"score":{"name":"@s","objective":"qol.level"},"color":"green"},{"text":"✦ ","color":"green"},{"score":{"name":"@s","objective":"qol.hours"},"color":"gray"},{"text":"h","color":"gray"}]
