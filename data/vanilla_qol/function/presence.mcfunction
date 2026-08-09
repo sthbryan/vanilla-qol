@@ -5,6 +5,6 @@
 # came or went, not who.
 
 execute store result score #pcount qol.sys if entity @a
-execute if score #pcount qol.sys > #online qol.sys run function crafting_qol:sound/join
-execute if score #pcount qol.sys < #online qol.sys run function crafting_qol:sound/leave
+execute if score #pcount qol.sys > #online qol.sys run function vanilla_qol:sound/join
+execute if score #pcount qol.sys < #online qol.sys run function vanilla_qol:sound/leave
 scoreboard players operation #online qol.sys = #pcount qol.sys

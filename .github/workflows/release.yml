@@ -15,17 +15,17 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Build datapack zip
-        run: zip -r crafting-qol.zip pack.mcmeta data
+        run: zip -r vanilla-qol.zip pack.mcmeta data
 
       - name: Verify zip layout
         run: |
-          unzip -l crafting-qol.zip
-          unzip -p crafting-qol.zip pack.mcmeta > /dev/null
+          unzip -l vanilla-qol.zip
+          unzip -p vanilla-qol.zip pack.mcmeta > /dev/null
 
       - name: Publish release
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh release create "$GITHUB_REF_NAME" crafting-qol.zip \
+          gh release create "$GITHUB_REF_NAME" vanilla-qol.zip \
             --title "$GITHUB_REF_NAME" \
             --generate-notes

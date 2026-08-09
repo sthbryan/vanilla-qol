@@ -7,7 +7,7 @@
     },
     "stepping_on": {
       "block": {
-        "blocks": "#crafting_qol:roads"
+        "blocks": "#vanilla_qol:roads"
       }
     }
   }

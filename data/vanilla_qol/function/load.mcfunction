@@ -16,10 +16,10 @@ scoreboard players set #hourlen qol.sys 72000
 scoreboard players set #halfhour qol.sys 36000
 
 # The day counter is only seeded the first time it is missing.
-execute unless score #day qol.sys matches ..2147483647 run function crafting_qol:seed_day
+execute unless score #day qol.sys matches ..2147483647 run function vanilla_qol:seed_day
 
 # The loop reschedules itself. 'replace' keeps /reload from duplicating it.
-schedule function crafting_qol:loop 5t replace
+schedule function vanilla_qol:loop 5t replace
 
 # What the tab list shows. All dummy: they are computed, and a criterion
 # objective would be read-only.

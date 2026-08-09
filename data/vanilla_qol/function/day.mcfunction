@@ -8,5 +8,5 @@
 # So the wrap of the timeline is what gets detected. That covers both a
 # natural dawn and the jump from sleeping.
 execute store result score #tnow qol.sys run time query day
-execute if score #tnow qol.sys < #tprev qol.sys run function crafting_qol:day_next
+execute if score #tnow qol.sys < #tprev qol.sys run function vanilla_qol:day_next
 scoreboard players operation #tprev qol.sys = #tnow qol.sys

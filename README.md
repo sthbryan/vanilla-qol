@@ -1,4 +1,4 @@
-# Crafting QoL
+# Vanilla QoL
 
 A Minecraft datapack with quality-of-life recipes, sounds and notices.
 
@@ -55,9 +55,9 @@ scoreboard players set <player> qol.ptime 860781
 
 ### Tuning
 
-- Sounds live in `data/crafting_qol/function/sound/`. Change the sound id,
+- Sounds live in `data/vanilla_qol/function/sound/`. Change the sound id,
   volume or pitch there; nothing else refers to them.
-- Which blocks count as roads is the `#crafting_qol:roads` block tag.
+- Which blocks count as roads is the `#vanilla_qol:roads` block tag.
 - The low-health threshold is the `qol.health=1..6` range (health points).
 - What the tab list shows is the fixed number format at the end of
   `function/tablist.mcfunction`.
@@ -93,9 +93,9 @@ in ticks, not a day number — the day counter derives it from
 Copy the repository contents into a folder inside `world/datapacks/`, or place a
 zip of them there. Then run `/reload` or restart the server.
 
-Tagging a release (`v*`) publishes `crafting-qol.zip`, which can be consumed
+Tagging a release (`v*`) publishes `vanilla-qol.zip`, which can be consumed
 directly:
 
 ```
-https://github.com/sthbryan/crafting-qol/releases/latest/download/crafting-qol.zip
+https://github.com/sthbryan/vanilla-qol/releases/latest/download/vanilla-qol.zip
 ```

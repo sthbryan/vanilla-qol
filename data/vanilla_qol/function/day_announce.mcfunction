@@ -2,4 +2,4 @@
 # or 'actionbar' below if it turns out too intrusive.
 title @a times 10 50 15
 title @a title [{"text":"☀ ","color":"gold"},{"text":"Day ","color":"gray"},{"score":{"name":"#day","objective":"qol.sys"},"color":"gold","bold":true}]
-function crafting_qol:sound/day
+function vanilla_qol:sound/day
