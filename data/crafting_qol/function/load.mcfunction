@@ -26,5 +26,8 @@ schedule function crafting_qol:loop 5t replace
 scoreboard objectives add qol.health dummy
 scoreboard objectives add qol.level dummy
 scoreboard objectives add qol.hours dummy
-scoreboard objectives setdisplay list qol.level
-scoreboard objectives modify qol.level numberformat styled {"color":"green"}
+
+# qol.tab only exists to carry the display. Keeping it separate from the
+# objectives the format reads is what prevents the format from recursing.
+scoreboard objectives add qol.tab dummy
+scoreboard objectives setdisplay list qol.tab
