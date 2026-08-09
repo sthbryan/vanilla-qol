@@ -1,8 +1,11 @@
-# Anuncia el numero de dia cuando cambia (al amanecer).
+# Detecta el cambio de dia y lo anuncia.
 #
-# Ojo: en 26.2 'time query day' NO devuelve el numero de dia sino la posicion
-# dentro de la timeline del dia, en ticks. El numero sale de gametime / 24000.
-execute store result score #today qol.sys run time query gametime
-scoreboard players operation #today qol.sys /= #daylen qol.sys
-execute if entity @a unless score #today qol.sys = #day qol.sys run function crafting_qol:day_announce
-scoreboard players operation #day qol.sys = #today qol.sys
+# En 26.2 no hay forma de preguntar el numero de dia: 'time query day' devuelve
+# la posicion dentro de la timeline del dia (0..23999) y 'daytime' ya no existe.
+# 'gametime' tampoco sirve porque cuenta ticks reales y NO salta al dormir.
+#
+# Asi que se detecta cuando la timeline da la vuelta. Eso cubre tanto el
+# amanecer natural como el salto por dormir.
+execute store result score #tnow qol.sys run time query day
+execute if score #tnow qol.sys < #tprev qol.sys run function crafting_qol:day_next
+scoreboard players operation #tprev qol.sys = #tnow qol.sys
