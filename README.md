@@ -22,18 +22,45 @@ them in the vanilla tag.
 | Death sound | A bell heard server-wide when any player dies | 4×/s |
 | Low health | A heartbeat while a player is at 3 hearts or less | 1×/s |
 | Path sprinting | Speed II while sprinting on a dirt path | 4×/s |
-| Day counter | Announces the day number in chat when it changes | 1×/s |
+| Day counter | Announces the day number as a title when it changes | 1×/s |
+| Tab list | Health, experience level and hours played beside each name | 1×/s |
 
 Minecraft exposes no connect/disconnect event to datapacks, so join and leave
 are inferred by comparing the player count against the previous cycle. That
 detects *that* somebody came or went, not *who*.
+
+### Seeding two counters
+
+Two values cannot be recovered from the world, so they start wrong on an
+existing save and have to be set once.
+
+**Day number.** Nothing in 26.2 returns one: `time query day` gives a position
+inside the day timeline, `daytime` is gone, and `level.dat` no longer stores
+`DayTime`. The pack seeds from `gametime / 24000`, which *undercounts* — a
+world that has been slept through skips nights without advancing gametime. Set
+the real number once:
+
+```
+scoreboard players set #day qol.sys 126
+```
+
+**Hours played.** A statistic criterion does not backfill the existing
+statistic when the objective is created, so it starts at zero and counts from
+then on. The objective is writable, so seed it from
+`world/players/stats/<uuid>.json` → `stats."minecraft:custom"."minecraft:play_time"`:
+
+```
+scoreboard players set <player> qol.ptime 860781
+```
 
 ### Tuning
 
 - Sounds live in `data/crafting_qol/function/sound/`. Change the sound id,
   volume or pitch there; nothing else refers to them.
 - Which blocks count as roads is the `#crafting_qol:roads` block tag.
-- The low-health threshold is the `qol.hp=1..6` range (half-hearts).
+- The low-health threshold is the `qol.health=1..6` range (health points).
+- What the tab list shows is the fixed number format at the end of
+  `function/tablist.mcfunction`.
 
 ## Performance
 
