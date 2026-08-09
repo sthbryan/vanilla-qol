@@ -7,6 +7,7 @@
 schedule function crafting_qol:loop 5t replace
 
 function crafting_qol:presence
+function crafting_qol:death
 
 scoreboard players add #tick qol.sys 1
 execute if score #tick qol.sys matches 4.. run function crafting_qol:slow
