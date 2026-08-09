@@ -18,3 +18,7 @@ execute unless score #day qol.sys matches ..2147483647 run function crafting_qol
 
 # El loop se reagenda a si mismo. 'replace' evita que /reload lo duplique.
 schedule function crafting_qol:loop 5t replace
+
+# Nivel de experiencia junto al nombre en el tab list.
+scoreboard objectives add qol.level dummy
+scoreboard objectives setdisplay list qol.level
