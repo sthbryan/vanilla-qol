@@ -1,0 +1,31 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build datapack zip
+        run: zip -r crafting-qol.zip pack.mcmeta data
+
+      - name: Verify zip layout
+        run: |
+          unzip -l crafting-qol.zip
+          unzip -p crafting-qol.zip pack.mcmeta > /dev/null
+
+      - name: Publish release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "$GITHUB_REF_NAME" crafting-qol.zip \
+            --title "$GITHUB_REF_NAME" \
+            --generate-notes
