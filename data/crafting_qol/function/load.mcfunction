@@ -4,6 +4,7 @@
 scoreboard objectives add qol.sys dummy
 # Criterio que Minecraft mantiene solo: no cuesta nada por tick.
 scoreboard objectives add qol.deaths deathCount
+scoreboard objectives add qol.hp health
 
 # 'add 0' inicializa sin pisar el valor si ya existe.
 scoreboard players add #tick qol.sys 0
