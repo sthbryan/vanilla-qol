@@ -21,7 +21,7 @@ them in the vanilla tag.
 | Join / leave sound | A chime when someone connects, a low note when someone disconnects | 4×/s |
 | Death sound | A bell heard server-wide when any player dies | 4×/s |
 | Low health | A heartbeat while a player is at 3 hearts or less | 1×/s |
-| Path sprinting | Speed II while sprinting on a dirt path | 4×/s |
+| Path sprinting | Speed I while sprinting on a dirt path | 4×/s |
 | Day counter | Announces the day number as a title when it changes | 1×/s |
 | Tab list | Health, experience level and hours played beside each name | 1×/s |
 
