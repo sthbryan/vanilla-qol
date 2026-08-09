@@ -22,3 +22,4 @@ schedule function crafting_qol:loop 5t replace
 # Experience level next to each name in the tab list.
 scoreboard objectives add qol.level dummy
 scoreboard objectives setdisplay list qol.level
+scoreboard objectives modify qol.level numberformat styled {"color":"green"}
