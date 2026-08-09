@@ -1,8 +1,8 @@
-# Cada 5 ticks (4 veces por segundo).
+# Every 5 ticks (4 times per second).
 #
-# Deliberadamente NO usa el tag #minecraft:tick ni selectores @e: esa
-# combinacion es la que hacia que un datapack se comiera la mitad del tick.
-# Todo aca se acota a @a, que son 3 jugadores como maximo.
+# Deliberately avoids the #minecraft:tick function tag and @e selectors: that
+# combination is what made a datapack eat half the server tick. Everything
+# here is scoped to @a, which is at most a handful of players.
 
 schedule function crafting_qol:loop 5t replace
 

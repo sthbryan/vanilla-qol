@@ -1,4 +1,4 @@
-# Una vez por segundo: lo que no necesita reaccionar rapido.
+# Once per second: everything that does not need to react quickly.
 scoreboard players set #tick qol.sys 0
 
 function crafting_qol:low_health

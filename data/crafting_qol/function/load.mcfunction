@@ -1,24 +1,24 @@
-# Se ejecuta al arrancar el server y en cada /reload.
+# Runs on server start and on every /reload.
 
-# qol.sys guarda contadores internos bajo nombres de jugador falsos (#algo).
+# qol.sys holds internal counters under fake player names (#something).
 scoreboard objectives add qol.sys dummy
-# Criterio que Minecraft mantiene solo: no cuesta nada por tick.
+# Criteria Minecraft maintains on its own: free, no per-tick cost.
 scoreboard objectives add qol.deaths deathCount
 scoreboard objectives add qol.hp health
 
-# 'add 0' inicializa sin pisar el valor si ya existe.
+# 'add 0' initialises without overwriting an existing value.
 scoreboard players add #tick qol.sys 0
 scoreboard players add #online qol.sys 0
 
-# Constante para dividir gametime y sacar el numero de dia.
+# Constant used to turn gametime into a day number.
 scoreboard players set #daylen qol.sys 24000
 
-# El contador de dias solo se siembra si nunca existio.
+# The day counter is only seeded the first time it is missing.
 execute unless score #day qol.sys matches ..2147483647 run function crafting_qol:seed_day
 
-# El loop se reagenda a si mismo. 'replace' evita que /reload lo duplique.
+# The loop reschedules itself. 'replace' keeps /reload from duplicating it.
 schedule function crafting_qol:loop 5t replace
 
-# Nivel de experiencia junto al nombre en el tab list.
+# Experience level next to each name in the tab list.
 scoreboard objectives add qol.level dummy
 scoreboard objectives setdisplay list qol.level

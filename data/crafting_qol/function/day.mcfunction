@@ -1,11 +1,12 @@
-# Detecta el cambio de dia y lo anuncia.
+# Detects the change of day and announces it.
 #
-# En 26.2 no hay forma de preguntar el numero de dia: 'time query day' devuelve
-# la posicion dentro de la timeline del dia (0..23999) y 'daytime' ya no existe.
-# 'gametime' tampoco sirve porque cuenta ticks reales y NO salta al dormir.
+# In 26.2 nothing returns a day number: 'time query day' gives the position
+# inside the day timeline (0..23999) and 'daytime' no longer exists.
+# 'gametime' is no good either — it counts real world ticks and does NOT jump
+# when players sleep.
 #
-# Asi que se detecta cuando la timeline da la vuelta. Eso cubre tanto el
-# amanecer natural como el salto por dormir.
+# So the wrap of the timeline is what gets detected. That covers both a
+# natural dawn and the jump from sleeping.
 execute store result score #tnow qol.sys run time query day
 execute if score #tnow qol.sys < #tprev qol.sys run function crafting_qol:day_next
 scoreboard players operation #tprev qol.sys = #tnow qol.sys

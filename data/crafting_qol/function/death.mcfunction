@@ -1,3 +1,3 @@
-# deathCount lo incrementa Minecraft solo. Se lee y se vuelve a cero.
+# Minecraft increments deathCount by itself. Read it, then clear it.
 execute as @a[scores={qol.deaths=1..}] run function crafting_qol:sound/death
 scoreboard players set @a[scores={qol.deaths=1..}] qol.deaths 0

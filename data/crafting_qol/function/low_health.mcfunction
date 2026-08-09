@@ -1,3 +1,3 @@
-# Latido cuando quedan 3 corazones o menos. El criterio 'health' viene en
-# medios corazones: 6 = 3 corazones.
+# Heartbeat at three hearts or less. The 'health' criterion counts half
+# hearts, so 6 means 3 hearts.
 execute as @a[scores={qol.hp=1..6},gamemode=!creative,gamemode=!spectator] at @s run playsound minecraft:entity.warden.heartbeat master @s ~ ~ ~ 1 1.1

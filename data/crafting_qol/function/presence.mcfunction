@@ -1,8 +1,8 @@
-# Sonido cuando alguien entra y cuando alguien sale.
+# A sound when somebody joins and when somebody leaves.
 #
-# Minecraft no expone eventos de conexion a los datapacks, asi que se compara
-# la cantidad de jugadores contra la del ciclo anterior. Detecta que alguien
-# entro o salio, no quien.
+# Minecraft exposes no connect/disconnect event to datapacks, so the player
+# count is compared against the previous cycle. That detects that somebody
+# came or went, not who.
 
 execute store result score #pcount qol.sys if entity @a
 execute if score #pcount qol.sys > #online qol.sys run function crafting_qol:sound/join
