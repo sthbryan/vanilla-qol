@@ -1,0 +1,1 @@
+execute as @a at @s run summon firework_rocket ~-1 ~1 ~0.5 {LifeTime:14,FireworksItem:{id:"minecraft:firework_rocket",count:1,components:{"minecraft:fireworks":{flight_duration:1,explosions:[{shape:"star",colors:[I;16777215],fade_colors:[I;65535],has_twinkle:true}]}}}}

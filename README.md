@@ -24,6 +24,7 @@ them in the vanilla tag.
 | Path sprinting | Speed I while sprinting on a dirt path | 4×/s |
 | Day counter | Announces the day number as a title when it changes | 1×/s |
 | Tab list | Health, experience level and hours played beside each name | 1×/s |
+| Milestones | Fireworks and a fanfare every 50 days, a bigger one every 100 | on day change |
 
 Minecraft exposes no connect/disconnect event to datapacks, so join and leave
 are inferred by comparing the player count against the previous cycle. That
@@ -53,6 +54,8 @@ then on. The objective is writable, so seed it from
 scoreboard players set <player> qol.ptime 860781
 ```
 
+Day 100, 200 and so on fire only the hundred-day celebration, never both.
+
 ### Tuning
 
 - Sounds live in `data/vanilla_qol/function/sound/`. Change the sound id,
@@ -61,6 +64,12 @@ scoreboard players set <player> qol.ptime 860781
 - The low-health threshold is the `qol.health=1..6` range (health points).
 - What the tab list shows is the fixed number format at the end of
   `function/tablist.mcfunction`.
+- Milestone intervals are the `#c50` and `#c100` constants in
+  `function/load.mcfunction`.
+
+Firework rockets take `LifeTime` and `FireworksItem` in PascalCase. The
+snake_case spellings parse without complaint and are then silently ignored,
+which leaves the rocket detonating on the spot with no colours.
 
 ## Performance
 

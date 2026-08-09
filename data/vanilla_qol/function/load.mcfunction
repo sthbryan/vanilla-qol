@@ -14,6 +14,8 @@ scoreboard players add #online qol.sys 0
 scoreboard players set #daylen qol.sys 24000
 scoreboard players set #hourlen qol.sys 72000
 scoreboard players set #halfhour qol.sys 36000
+scoreboard players set #c50 qol.sys 50
+scoreboard players set #c100 qol.sys 100
 
 # The day counter is only seeded the first time it is missing.
 execute unless score #day qol.sys matches ..2147483647 run function vanilla_qol:seed_day
