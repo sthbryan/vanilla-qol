@@ -22,6 +22,7 @@ them in the vanilla tag.
 | Death sound | A bell heard server-wide when any player dies | 4×/s |
 | Low health | A heartbeat while a player is at 3 hearts or less | 1×/s |
 | Path sprinting | Speed I while sprinting on a dirt path | 4×/s |
+| Unbreakable anvils | Chipped or damaged anvils near a player who used one go back to full | 4×/s, for 1 min after opening one |
 | Day counter | Announces the day number as a title when it changes | 1×/s |
 | Tab list | Health, experience level and hours played beside each name | 1×/s |
 | Milestones | Fireworks and a fanfare every 50 days, a bigger one every 100 | on day change |

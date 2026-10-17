@@ -5,6 +5,8 @@ scoreboard objectives add qol.sys dummy
 # Criteria Minecraft maintains on its own: free, no per-tick cost.
 scoreboard objectives add qol.deaths deathCount
 scoreboard objectives add qol.ptime minecraft.custom:minecraft.play_time
+scoreboard objectives add qol.anvil minecraft.custom:minecraft.interact_with_anvil
+scoreboard objectives add qol.anvilt dummy
 
 # 'add 0' initialises without overwriting an existing value.
 scoreboard players add #tick qol.sys 0

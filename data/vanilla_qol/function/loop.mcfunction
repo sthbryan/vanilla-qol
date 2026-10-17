@@ -9,6 +9,7 @@ schedule function vanilla_qol:loop 5t replace
 function vanilla_qol:presence
 function vanilla_qol:death
 function vanilla_qol:path_sprint
+function vanilla_qol:anvil
 
 scoreboard players add #tick qol.sys 1
 execute if score #tick qol.sys matches 4.. run function vanilla_qol:slow
