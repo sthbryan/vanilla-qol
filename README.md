@@ -91,7 +91,7 @@ Cheap building blocks used here instead:
 
 ## Compatibility
 
-Built for Minecraft 26.2 (`pack_format` 107, accepts up to 108).
+Built for Minecraft 26.2 (`pack_format` 107) and 26.3 (accepts up to 120).
 
 Note that `time query day` in 26.2 returns a position inside the day timeline
 in ticks, not a day number — the day counter derives it from

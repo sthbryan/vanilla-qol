@@ -2,7 +2,7 @@
   "pack": {
     "pack_format": 107,
     "min_format": 107,
-    "max_format": 108,
+    "max_format": 120,
     "description": "QoL: recipes, sounds and notices"
   }
 }
